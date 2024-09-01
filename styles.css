@@ -1,0 +1,238 @@
+/* Reset some default styles */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(to right, #f4f4f4, #e0e0e0);
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(120deg, #3498db, #2ecc71, #3498db);
+    background-size: 400% 400%;
+    color: white;
+    padding: 40px 20px; /* Increased padding for a larger header */
+    text-align: center;
+    border-bottom: 5px solid #2980b9;
+    position: relative;
+    overflow: hidden;
+    animation: gradientAnimation 8s ease infinite;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+header h1 {
+    font-size: 3em; /* Increased font size for emphasis */
+    margin: 0;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5); /* More pronounced shadow */
+    animation: textFloat 2s ease-in-out infinite;
+}
+
+@keyframes textFloat {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1); /* Subtle overlay for added depth */
+    z-index: 0;
+}
+
+header h1 {
+    position: relative;
+    z-index: 1; /* Ensure text is above the overlay */
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: #e74c3c;
+    transition: width 0.5s;
+}
+
+header:hover::after {
+    width: 100%;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+section {
+    margin-bottom: 20px;
+    padding: 20px;
+    background: linear-gradient(to bottom right, #ffffff, #f9f9f9); /* Gradient background */
+    border-radius: 8px;
+    border: 1px solid #ddd; /* Light border to create separation */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+h2 {
+    font-size: 1.8em;
+    color: #3498db;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.3s;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+h2:hover {
+    color: #2980b9;
+    transform: scale(1.1); /* Slightly larger hover effect */
+    border-bottom: 2px solid #2980b9;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    background: url('checkmark.png') no-repeat left center;
+    padding-left: 40px;
+    margin-bottom: 15px;
+    position: relative;
+    font-size: 1.1em;
+    animation: bounceIn 0.5s ease-out;
+}
+
+@keyframes bounceIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.contact input, .contact button {
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px; /* More rounded corners */
+    font-size: 1em;
+}
+
+.contact input {
+    background: #f9f9f9;
+}
+
+.contact button {
+    background: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s; /* Added box-shadow transition */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for a 3D effect */
+}
+
+.contact button:hover {
+    background: #2980b9;
+    transform: scale(1.1); /* Slightly larger hover effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+}
+
+footer {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px; /* Increased padding */
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -6px 12px rgba(0,0,0,0.2); /* Enhanced shadow */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em; /* Smaller size for medium screens */
+    }
+
+    section {
+        padding: 10px; /* Reduced padding for smaller screens */
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    ul li {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.4em; /* Even smaller size for small screens */
+    }
+
+    .contact form {
+        width: 90%;
+        margin: auto;
+    }
+
+    .contact input, .contact button {
+        width: 100%;
+        font-size: 0.9em; /* Slightly smaller text */
+    }
+}
